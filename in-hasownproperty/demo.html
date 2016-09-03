@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(){
+		}
+		Person.prototype.name = "allen";
+
+		var person = new Person();
+		console.log(person.hasOwnProperty("name"));
+		console.log("name" in person);
+		console.log(person.name);
+
+		person.name = "justforse";
+		console.log(person.hasOwnProperty("name"));
+		console.log("name" in person);
+		console.log(person.name);
+
+		delete person.name;
+		console.log(person.hasOwnProperty("name"));
+		console.log("name" in person);
+		console.log(person.name);
+	</script>
+</body>
+</html>
