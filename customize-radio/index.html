@@ -1,50 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title></title>
 	<script></script>
 	<style>
-		.container{
-			position: relative
-		}
-		#radio:checked ~ .radio-off{
-			display: inline-block;
-		}
-		#radio:checked ~ .radio-on{
-			display: none;
-		}
-		#radio ~ .radio-off{
-			display: none;
-		}
-		#radio ~ .radio-on{
-			display: inline-block;
-		}
-		label{
-			display: inline-block;
-			height:30px;
-			width:100px;
-			border-top-left-radius: 15px 50%;
-			border-bottom-left-radius: 15px 50%;
-			border-top-right-radius: 15px 50%;
-			border-bottom-right-radius: 15px 50%;
-			background-color:grey;
-		}
-		.radio-on{
-			
-		}
+	.container {
+		
+	}
+	.text{
+		display: none;
+	}
+	.circle{
+		position:absolute;
+		display: inline-block;
+	}
+	#radio ~label .circle {
+		left:0;
+	}
+	#radio ~label .on{
+		display:inline-block;
+	}
+	#radio:checked ~label .circle {
+		right: 0;
+	}
+	#radio:checked ~label .on{
+		display:inline-block;
+	}
+	
+	
+	label {
+		display: inline-block;
+		position: relative;
+		height: 30px;
+		width: 100px;
+		border-top-left-radius: 15px 50%;
+		border-bottom-left-radius: 15px 50%;
+		border-top-right-radius: 15px 50%;
+		border-bottom-right-radius: 15px 50%;
+		background-color: grey;
+	}
+	
+	label .circle {
+		display: inline-block;
+		height: 26px;
+		width: 26px;
+		border-radius: 50%;
+		border: 2px solid #333;
+		background-color: #ccc;
+	}
+	
+	
+
 	</style>
 </head>
+
 <body>
-<div class="container">
-	<input type="checkbox" id="radio" name="switch">
-	<label for="radio" class="radio-on">
-		<span></span>
-	</label>
-	<label for="radio" class="radio-off">
-		<span></span>
-	</label>
-</div>
-	
+	<div class="container">
+		<input type="checkbox" id="radio" name="switch">
+		<label for="radio" class="radio">
+			<span class="circle"></span>
+			<span class="text on">on</span>
+			<span class="text off">off</span>
+		</label>
+	</div>
 </body>
+
 </html>
