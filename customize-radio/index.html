@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script></script>
+	<style>
+		.container{
+			position: relative
+		}
+		#radio:checked ~ .radio-off{
+			display: inline-block;
+		}
+		#radio:checked ~ .radio-on{
+			display: none;
+		}
+		#radio ~ .radio-off{
+			display: none;
+		}
+		#radio ~ .radio-on{
+			display: inline-block;
+		}
+		label{
+			display: inline-block;
+			height:30px;
+			width:100px;
+			border-top-left-radius: 15px 50%;
+			border-bottom-left-radius: 15px 50%;
+			border-top-right-radius: 15px 50%;
+			border-bottom-right-radius: 15px 50%;
+			background-color:grey;
+		}
+		.radio-on{
+			
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<input type="checkbox" id="radio" name="switch">
+	<label for="radio" class="radio-on">
+		<span></span>
+	</label>
+	<label for="radio" class="radio-off">
+		<span></span>
+	</label>
+</div>
+	
+</body>
+</html>
