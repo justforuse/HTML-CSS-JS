@@ -6,40 +6,66 @@
 	<title></title>
 	<script></script>
 	<style>
-	.container {
-		
-	}
-	.text{
+	.text {
 		display: none;
 	}
-	.circle{
-		position:absolute;
+	.on{
+		color:#333;
+	}
+	.off{
+		color:#eee;
+	}
+	.circle {
+		position: absolute;
 		display: inline-block;
 	}
-	#radio ~label .circle {
-		left:0;
-	}
-	#radio ~label .on{
-		display:inline-block;
-	}
-	#radio:checked ~label .circle {
-		right: 0;
-	}
-	#radio:checked ~label .on{
-		display:inline-block;
+	
+	#radio ~label {
+		background-color: grey;
 	}
 	
+	#radio ~label .circle {
+		left: 0;
+		transition: all 0.3s;
+		--webkit-transition: all 0.3s;
+	}
+	
+	#radio ~label .on {
+		display: none;
+	}
+	
+	#radio ~ label .off {
+		display: inline-block;
+	}
+	
+	#radio:checked ~ label {
+		background: lime;
+	}
+	
+	#radio:checked ~label .circle {
+		left: 50px;
+	}
+	.circle{
+		
+	}
+	#radio:checked ~label .on {
+		display: inline-block;
+	}
+	
+	#radio:checked ~ label .off {
+		display: none;
+	}
 	
 	label {
 		display: inline-block;
 		position: relative;
 		height: 30px;
-		width: 100px;
+		width: 80px;
 		border-top-left-radius: 15px 50%;
 		border-bottom-left-radius: 15px 50%;
 		border-top-right-radius: 15px 50%;
 		border-bottom-right-radius: 15px 50%;
-		background-color: grey;
+		box-shadow: 0 0 2px black;
 	}
 	
 	label .circle {
@@ -48,11 +74,16 @@
 		width: 26px;
 		border-radius: 50%;
 		border: 2px solid #333;
-		background-color: #ccc;
+		background-color: #eee;
 	}
 	
-	
-
+	label .text {
+		text-indent: 30px;
+		line-height: 28px;
+		font-size: 18px;
+		font-family: sans-serif;
+		text-shadow: 0 0 2px #ddd;
+	}
 	</style>
 </head>
 
@@ -61,8 +92,8 @@
 		<input type="checkbox" id="radio" name="switch">
 		<label for="radio" class="radio">
 			<span class="circle"></span>
-			<span class="text on">on</span>
-			<span class="text off">off</span>
+			<span class="text on">ON</span>
+			<span class="text off">OFF</span>
 		</label>
 	</div>
 </body>
