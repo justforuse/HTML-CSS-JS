@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var parent = {
+			name:"allen",
+			address:{
+				province:"heilongjiang",
+				city:"mudanjiang"
+			}
+		};
+
+		var child = clone(parent);
+		child.age = 18;
+		console.log(parent);
+		console.log(child);
+		// 复制对象
+		function clone(obj){
+			var temp = {};
+			for(var i in obj){
+				temp[i] = obj[i];
+			}
+			return temp;
+		}
+	</script>
+</body>
+</html>
