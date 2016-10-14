@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+		var tempArr = [
+			{
+				"name":"allen",
+				"age":21
+			},
+			{
+				"name":"bob",
+				"age":18
+			},
+			{
+				"name":"curry",
+				"age":25
+			}
+
+		];
+		console.log(tempArr);
+		// 引用类型
+		var objArr = tempArr.slice(0);
+		objArr.sort(function(a, b){
+			if(a.age > b.age){
+				return 1;
+			}else if(a.age == b.age){
+				return 0;
+			}else{
+				return -1;
+			}
+		})
+
+		console.log(objArr);
+	</script>
+</body>
+</html>
