@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<textarea id="text">
+		
+	</textarea>
+	<button onclick="concert()">Split</button>
+	<script>
+
+		function concert(str){
+			var temp = str.split(/[\n,]/g);
+				for(var i =0;i<temp.length;i++){
+				if(temp[i] == ""){
+					temp.splice(i, 1);
+					i--;
+				}
+			}
+			console.log(temp);
+		}
+
+		xiaodong("123,\naa,,,,,\n\n\n\n\n1");
+	</script>
+</body>
+</html>

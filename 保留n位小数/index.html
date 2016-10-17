@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+</head>
+
+<body>
+	<script>
+	/*
+	 *
+	 */
+	function saveDecimal(num, accu) {
+		var numArr = (num + "").split(".");
+		var res = "";
+		var temp = 1;
+		if (numArr.length == 1) {
+			if (accu == 0) {
+				res = num;
+				return +res;
+			} else {
+				res += ".";
+				for (var i = 0; i < accu; i++) {
+					res += "0";
+				}
+				return parseFloat(num + "" + res);
+			}
+		} else {
+
+			if (numArr[1].length == accu) {
+				res = num;
+				return +res;
+			} else if (numArr[1].length > accu) {
+				if (+numArr[1][accu] > 4) {
+					for (var j = 0; j < accu; i++) {
+						temp = temp / 10;
+					}
+					res = +([numArr[0], numArr[1].substr(0, accu)].join(".")) + temp;
+					return res;
+				} else {
+					res = +([numArr[0], numArr[1].substr(0, accu)].join("."));
+					return res;
+				}
+			} else if (numArr[1].length > accu) {
+				res = num;
+				for (var m = 0; m < accu - numArr[1].length; m++) {
+					res += "0";
+				}
+				return +res;
+			}
+
+		}
+	}
+
+	console.log(saveDecimal(5, 0));
+	console.log(saveDecimal(5, 3));
+	// console.log(saveDecimal(14.3267, 0));
+	// console.log(saveDecimal(14.3267, 1));
+	// console.log(saveDecimal(14.326, 2));
+	// console.log(saveDecimal(14.326, 5));
+	</script>
+</body>
+
+</html>
