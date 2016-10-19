@@ -1,92 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
+
 <body>
 	<script>
-		function setYAxisScale(max) {
-        if (max<=10) {
-            switch (max) {
-                case max <= 5: 
-                    return {
-                        maxValue: max,
-                        step: max
-                    };
-                
+	function setYAxisScale(max, times) {
+		var times = times;
+		var affix = "";
+		if (max <= 10) {
+			if (max <= 5) {
+				return {
+					maxValue: max,
+					step: max
+				};
+			} else if (max > 5 && max <= 10) {
+				if (max % 2 == 0) {
+					return {
+						maxValue: max,
+						step: 2
+					}
+				} else {
+					return {
+						maxValue: max + 1,
+						step: 2
+					}
+				}
+			}
+		} else {
+			/*var length = (max+"").length-1;
+			var d="";
+			//10 的倍数
+			var d2;
+			for(var i=0;i<length;i++){
+			    d+="0";
+			}
+			d2=+("1"+d);
+			if(max/d2 != 0){
+			
+			}else{
+			    setYAxisScale(max)
+			}*/
+			if (max <= 20) {
+				if (max <= 15) {
+					for (var i = 0; i < times; i++) {
+						affix += "0";
+					}
+					return {
+						maxValue: +(15 + affix),
+						step: +(5 + affix)
+					}
+				} else {
+					for (var i = 0; i < times; i++) {
+						affix += "0";
+					}
+					return {
+						maxValue: +(20 + affix),
+						step: +(5 + affix)
+					}
+				}
+			} else if (max <= 50) {
+				if (max % 10 == 0) {
+					for (var i = 0; i < times; i++) {
+						affix += "0";
+					}
+					return {
+						maxValue: +(max + affix),
+						step: +(10 + affix)
+					}
+				} else {
+					for (var i = 0; i < times; i++) {
+						affix += "0";
+					}
+					return {
+						maxValue: +(10 - max % 10 + max + affix),
+						step: +(10 + affix)
+					}
+				}
+			} else if (max <= 100) {
+				if (max % 20 == 0) {
+					for (var i = 0; i < times; i++) {
+						affix += "0";
+					}
+					return {
+						maxValue: +(max + affix),
+						step: +(20 + affix)
+					}
+				} else {
+					for (var i = 0; i < times; i++) {
+						affix += "0";
+					}
+					return {
+						maxValue: +(20 - max % 20 + max + affix),
+						step: +(20 + affix)
+					}
+				}
+			} else {
+				times++;
+				return setYAxisScale(Math.ceil(max / 10), times);
+			}
 
-                case (max > 5 && max <= 10): 
-                    if (max % 2 == 0) {
-                        return {
-                            maxValue: max,
-                            step: 2
-                        }
-                    } else {
-                        return {
-                            maxValue: max + 1,
-                            step: 2
-                        }
-                    }
-                
-                default:
-                	return "none";
-                
-            }
-        } else {
-            // var length = (max+"").length-1;
-            // var d="";
-            // //10 的倍数
-            // var d2;
-            // for(var i=0;i<length;i++){
-            //     d+="0";
-            // }
-            // d2=+("1"+d);
-            // if(max/d2 != 0){
-            //
-            // }else{
-            //     setYAxisScale(max)
-            // }
-            switch (max) {
-                case max<=20:{
-                    return{
 
-                    }
-                }
-                case max <= 50 : {
-                    if(max%10 == 0){
-                        return{
-                            maxValue:max,
-                            step:10
-                        }
-                    }else{
-                        return{
-                            maxValue: 10-max%10 + max,
-                            step:10
-                        }
-                    }
-                }
-                case max<=100:{
-                    if(max%20 == 0){
-                        return {
-                            maxValue:max,
-                            step:20
-                        }
-                    }else{
-                        return {
-                            maxValue:20-max%20 + max,
-                            step: 20
-                        }
-                    }
-                }
-                default:{
-                    setYAxisScale(Math.ceil(max/10))
-                }
-            }
+		}
 
-        }
-
-    }
+	}
 	</script>
 </body>
+
 </html>
