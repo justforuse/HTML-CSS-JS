@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.dropdown{
+			display: inline-block;
+		}
+		.btn{
+			position: relative;
+			display: inline-block;
+			padding:5px 8px;
+			background-color: #fff;
+			border-radius: 4px;
+			border:1px solid #ccc;
+		}
+		.btn:hover{
+			background-color: #ddd;
+		}
+		.menu{
+			display: none;
+			position: absolute;
+			list-style: none;
+			border: 1px solid #eee;
+			min-width: 100px;
+		}
+		.menu li{
+			padding:5px 10px;
+		}
+		.menu li:hover{
+			background-color: #eee;
+		}
+		.dropdown:hover .menu{
+			display: block;
+		}
+		.dropdown:hover .btn{
+			background-color: #ddd;
+		}
+	</style>
+</head>
+<body>
+	<div class="dropdown">
+		<div class="btn">Hover me</div>
+		<ul class="menu">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+</body>
+</html>
