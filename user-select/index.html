@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.all-select{
+		-webkit-user-select: all;
+		-moz-user-select: all;
+		-ms-user-select: all;
+		user-select: all;
+	}
+	.none{
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	</style>
+</head>
+
+<body>
+	<!-- https://css-tricks.com/almanac/properties/u/user-select/ -->
+	<p class="none">You cannot select this</p>
+	<p>You cannot select <i class="none">THIS</i> text</p>
+	<p>But you can select one</p>
+	<p class="all-select">Just one click to select all</p>
+	<textarea name="" id="" cols="30" rows="10" placeholder="test what you have copied"></textarea>
+</body>
+
+</html>
