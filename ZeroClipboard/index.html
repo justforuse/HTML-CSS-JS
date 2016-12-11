@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="dist/ZeroClipboard.js"></script>
+</head>
+<body>
+	<button id="copy-button" data-clipboard-text="copy me!" title="Click to copy me">Copy</button>
+	<script type="text/javascript">
+		var client = new ZeroClipboard(document.getElementById("copy-button"));
+		client.on("ready", function(readyEvent){
+			client.on("aftercopy", function(event){
+				event.target.style.display="none";
+				alert("copied to clipboard: " + event.data["text/plain"]);
+			})
+		})
+	</script>
+</body>
+</html>
