@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.container {
+		height: 20px;
+		background-color: lime;
+	}
+	
+	.container2 {
+		height: 100px;
+		overflow: auto;
+		border: 1px solid #eee;
+	}
+	
+	.content {
+		height: 300px;
+	}
+	</style>
+</head>
+
+<body>
+	<div class="container" id="div"></div>
+	<button id="btn" onclick="bar()">Button</button>
+	<div class="container2" id="div2">
+		<div class="content"></div>
+	</div>
+	<button id="btn2" onclick="scroll()">Scroll</button>
+	<script>
+	var ele = document.getElementById("div");
+	var progress;
+
+	function func() {
+		if (progress < 100) {
+			progress += 1;
+			ele.style.width = progress + "%";
+
+			requestAnimationFrame(func);
+		}
+	}
+
+	function bar() {
+		ele.style.width = "1px";
+		progress = 0;
+		requestAnimationFrame(func);
+	}
+
+	function scroll() {
+		var ele = document.getElementById("div2");
+		var scrollTop = ele.scrollTop;
+		var flag = "up"
+		var funcScroll = function() {
+			var top = ele.scrollTop;
+			if ("up" == flag) {
+				top -= 20;
+				if (top <= 0) {
+					top = 0;
+					flag = "down";
+				}
+			} else if ("down" == flag) {
+				top += 20;
+				if (top >= scrollTop) {
+					top = scrollTop;
+					flag = "stop";
+				}
+			} else {
+				return false;
+			}
+
+			ele.scrollTop = top;
+			requestAnimationFrame(funcScroll);
+		}
+
+
+		if (scrollTop) {
+			funcScroll();
+		}
+	}
+	</script>
+</body>
+
+</html>
