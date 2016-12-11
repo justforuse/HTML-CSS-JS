@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div {
+		height: 30px;
+	}
+	
+	.container {
+		width: 100%;
+		transition: width 2s;
+		background-color: lime;
+	}
+	
+	.container:hover {
+		width: 0;
+	}
+	
+	.container2 {
+		background-color: red;
+		animation: func 2s 1 ease-in-out;
+	}
+	
+	@-webkit-keyframes func {
+		from {
+			width: 0;
+		}
+		to {
+			width: 100%;
+		}
+	}
+	</style>
+</head>
+
+<body>
+	<div class="container"></div>
+	<br>
+	<div class="container2"></div>
+</body>
+
+</html>
