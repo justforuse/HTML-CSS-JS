@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<script>
+		window.addEventListener("blur", onBlur);
+		window.addEventListener("focus", onFocus);
+
+		function onBlur(){
+			console.log("blur");
+		}
+		function onFocus(){
+			console.log("focus");
+		}
+	</script>
+</body>
+</html>
