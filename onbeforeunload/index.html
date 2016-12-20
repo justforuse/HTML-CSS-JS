@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+	window.onbeforeunload = function(event) {
+		if (event.clientX <= 0 && event.clientY < 0) {
+			alert("关闭");
+		} else {
+			alert("刷新或离开");
+		}
+	}
+	window.onunload = function() {
+		var warning = "确认退出?";
+		return warning;
+	}
+	</script>
+</body>
+
+</html>
