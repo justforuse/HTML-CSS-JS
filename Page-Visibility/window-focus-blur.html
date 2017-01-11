@@ -11,10 +11,10 @@
 		window.addEventListener("focus", onFocus);
 
 		function onBlur(){
-			console.log("blur");
+			document.title = false;
 		}
 		function onFocus(){
-			console.log("focus");
+			document.title = true;
 		}
 	</script>
 </body>
