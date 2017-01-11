@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+	var data = {
+		name: "s",
+		kind: "s",
+		channel: "",
+		job: ""
+	}
+
+	function test() {
+		for (var i in data) {
+			if (!data[i].trim()) {
+				switch (i) {
+					case "name":
+						alert("name");
+						return false;
+					case "kind":
+						alert("kind")
+						return false;
+					default:
+						break;
+				}
+			}
+		}
+
+		alert("success");
+	}
+
+	test();
+	</script>
+</body>
+
+</html>
