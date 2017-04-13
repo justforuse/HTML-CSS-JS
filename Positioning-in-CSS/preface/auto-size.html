@@ -7,37 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body{
+        body {
             position: relative;
-        }
-        .fixed {
-            border: 1px solid black;
-            /*position: fixed;*/
-            right: 10px;
-            top: 20px;
-            margin-top: 30px;
-        }
-        
-        .absolute {
-            border: 1px solid red;
-            position: absolute;
-            right: 0;
-            bottom: 0;
         }
     </style>
 </head>
 
 <body>
-    <div class="fixed">
-        div fixed
-        <div class="absolute">
-            div absolue
-        </div>
-    </div>
     <p>
         When we consider the effect of positioning, it quickly becomes clear that authors can do a great deal of damage to layout,
         just as they can do very interesting things.<span style="position: absolute; top: auto; left:
@@ -50,6 +26,11 @@ auto;">[4]</span> This is usually the case with useful technologies: the sword a
 right: 0; bottom: 0; height: 2em; width: 5em;">[4]</span> This is usually the case with useful technologies: the sword always
         has at least two edges, both of them sharp.
     </p>
+    First, if left, width, and right are all set to auto, then you get the result seen in the previous section: the left edge
+    is placed at its static position, assuming a left-to-right language. In right-to-left languages, the right edge is placed
+    at its static position. The width of the element is set to be “shrink to fit,” which means the element’s content area
+    is made only as wide as necessary to contain its content. The nonstatic position property (right in left-to-right languages,
+    left in right-to-left) is set to take up the remaining distance. For example:
 </body>
 
 </html>
