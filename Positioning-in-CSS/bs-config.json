@@ -1,6 +1,3 @@
 {
-    "port" : 9999,
-    "server":{
-        "baseDir":"./preface"
-    }
+    "port" : 9999
 }

@@ -31,6 +31,17 @@ right: 0; bottom: 0; height: 2em; width: 5em;">[4]</span> This is usually the ca
     at its static position. The width of the element is set to be “shrink to fit,” which means the element’s content area
     is made only as wide as necessary to contain its content. The nonstatic position property (right in left-to-right languages,
     left in right-to-left) is set to take up the remaining distance. For example:
+    <span style="position: absolute; top: 0; left: 1em;
+right: 12em; width: 10em; margin-left: 1em; margin-right: 1em;
+right: auto; background: silver;">shrink-wrapped</span>
+
+    <div style="position: relative; width: 10em; height: 10em; border: 1px solid;">
+        <div style="position: absolute; left: 0; width: 100%; background: #CCC;
+top: 0; height: 5em; bottom: 0; margin: 0;">
+            element D
+        </div>
+    </div>
+
 </body>
 
 </html>
