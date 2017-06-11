@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" onblur="inputBlur()" onchange="inputChange()"> 
+    <button type="button" onclick="btnClick()" onmousedown="btnMouseDown()" onmouseup="btnMouseUp()">OK</button>
+
+    <script>
+        function inputBlur(){
+            console.log("input blur");
+        }
+        function inputChange(){
+            console.log("input change");
+        }
+
+        function btnClick(){
+            console.log("btn click");
+        }
+
+        function btnMouseDown(){
+            console.log("btn mousedown");
+        }
+
+        function btnMouseUp(){
+            console.log("btn mouseup");
+        }
+    </script>
+</body>
+</html>

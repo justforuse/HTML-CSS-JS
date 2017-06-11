@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        function changeFunc(){
+            console.log("onchange event");
+        }
+
+        function blurFunc(){
+            console.log("onblur event");
+        }
+    </script>
+</head>
+<body>
+    sss
+    <input novalidate type="text" onchange="changeFunc()" onblur="blurFunc()">
+</body>
+</html>
