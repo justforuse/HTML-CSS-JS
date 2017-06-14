@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt8So3rkQBBhS9LjlEMIu9H2lKykTTKJU">
+
+    </script>
+    <style>
+        #map {
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(locationSuccess);
+        } else {
+            alert("Your browser does not support Geolocation!");
+        }
+
+        function locationSuccess(position) {
+            var coords = position.coords;
+            var latlng = new google.maps.LatLng(
+                // 维度
+                coords.latitude,
+                // 精度
+                coords.longitude
+            );
+            var myOptions = {
+                // 地图放大倍数  
+                zoom: 12,
+                // 地图中心设为指定坐标点  
+                center: latlng,
+                // 地图类型  
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var myMap = new google.maps.Map(
+                document.getElementById("map"), myOptions
+            );
+            // 创建标记  
+            var marker = new google.maps.Marker({
+                // 标注指定的经纬度坐标点  
+                position: latlng,
+                // 指定用于标注的地图  
+                map: myMap
+            });
+            //创建标注窗口  
+            var infowindow = new google.maps.InfoWindow({
+                content: "您在这里<br/>纬度：" +
+                coords.latitude +
+                "<br/>经度：" + coords.longitude
+            });
+            //打开标注窗口  
+            infowindow.open(myMap, marker);
+        }
+    </script>
+</body>
+
+</html>
