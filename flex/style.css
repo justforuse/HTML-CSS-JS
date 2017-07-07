@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.box {
+    display: flex;
+}
+
+.box1 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*flex-flow: flex-direction | flex-wrap*/
+    justify-content: space-around;
+}
+
+.item {
+    width: 200px;
+    height: 200px;
+    /*line-height: 1;*/
+    background-color: skyblue;
+}
+
+.box2{
+    height: 500px;
+    align-items: flex-start;
+}
+.box2 .item{
+    /*height: auto;*/
+}
+.item-tall {
+    height: 400px;
+}
+
+.item-short {
+    height: 100px;
+}
+
+
+
+.hide{
+    display: none;
+}
