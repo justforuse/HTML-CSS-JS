@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="" alt="">
+    <script>
+        myImage = document.querySelector('img');
+        fetch("./lenna.jpg")
+            .then(function (res) {
+                return res.blob()
+            })
+            .then(function (blob) {
+                var objectURL = URL.createObjectURL(blob);
+                myImage.src = objectURL;
+            })
+        fetch("./data.json")
+            .then(function(res){
+                return res.json();
+            })
+            .then(function(data){
+                console.log("data", data);
+            })
+
+        fetch("http://jsonplaceholder.typicode.com/users")
+            .then(function(res){
+                return res.json();
+            })
+            .then(function(data){
+                console.log("users", data);
+            })
+    </script>
+</body>
+
+</html>
