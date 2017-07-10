@@ -3,3 +3,5 @@ video/v.mp4
 .vscode
 node_modules
 npm-debug.log
+yarn-error.log
+npm-debug.log
