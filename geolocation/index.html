@@ -20,7 +20,9 @@
     <div id="map"></div>
     <script>
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(locationSuccess);
+            navigator.geolocation.getCurrentPosition(locationSuccess, null, {
+                enableHighAccuracy:true
+            });
         } else {
             alert("Your browser does not support Geolocation!");
         }
