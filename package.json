@@ -1,9 +1,6 @@
 {
-<<<<<<< HEAD
-  "name": "HTML-CSS-JS",
-=======
+
   "name": "html-css-js",
->>>>>>> b42b41a6bffeeee38cdb2afae6eca60cb10d6142
   "version": "1.0.0",
   "description": "just some demo",
   "main": "index.js",
@@ -15,10 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/justforuse/HTML-CSS-JS.git"
   },
-<<<<<<< HEAD
+
   "keywords": [],
-=======
->>>>>>> b42b41a6bffeeee38cdb2afae6eca60cb10d6142
+
   "author": "",
   "license": "ISC",
   "bugs": {
