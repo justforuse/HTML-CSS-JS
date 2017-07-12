@@ -8,6 +8,11 @@ p {
     width: 500px;
     height: 200px;
 }
+.container2{
+    height: 100px;
+    width: 300px;
+    overflow: scroll;
+}
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -27,13 +32,20 @@ p {
     background-color: #777;
 }
 
+::-webkit-scrollbar-track-piece {
+    /**/
+    /*background-color: green;*/
+    /*border-radius: 10px;*/
+}
 
 /*滑道*/
 
 ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px #333;
     border-radius: 10px;
+    /*background-color: red;*/
 }
+
 
 
 /*上下左右按钮*/
