@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 10px;
     background-color: #ddd;
 }
 
@@ -34,12 +34,43 @@
     height: 50px;*/
 
     /*background-size: 100%;*/
-    height: 10px;
+    height: 15px;
     width: 10px;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: block;
+}
+
+/* Turn off the down area up on top, and up area on bottom */
+::-webkit-scrollbar-button:vertical:start:increment,
+::-webkit-scrollbar-button:vertical:end:decrement {
+    display: none;
 }
 ::-webkit-scrollbar-button:horizontal:increment {
     background-image: url("scroll_cntrl_dwn.png"), -webkit-linear-gradient(left,  #f9f9f9 50%,#e2e2e2 100%) ;
 	background-repeat: no-repeat;
-    background-position: 3px 5px, 0 0;
+    background-position: bottom left, 0 0;
+    
+}
+::-webkit-scrollbar-button:vertical:start {
+    background-image: url("scroll_cntrl_dwn.png"), -webkit-linear-gradient(left,  #f9f9f9 50%,#e2e2e2 100%) ;
+	background-repeat: no-repeat;
+    background-position: bottom left, 0 0;
+
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+    
+}
+::-webkit-scrollbar-button:vertical:start:hover{
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+::-webkit-scrollbar-button:vertical:end {
+    background-image: url("scroll_cntrl_dwn.png"), -webkit-linear-gradient(left,  #f9f9f9 50%,#e2e2e2 100%) ;
+	background-repeat: no-repeat;
+    background-position: bottom left, 0 0;
     
 }
