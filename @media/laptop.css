@@ -1,0 +1,7 @@
+p{
+    color: red;
+    
+}
+p::after{
+    content:"("attr(data-name)")"
+}

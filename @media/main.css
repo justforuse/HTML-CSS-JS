@@ -1,0 +1,14 @@
+@media screen{
+    
+}
+
+@media print{
+    body{
+        background-color: skyblue;
+        font-size: 12x;
+    }
+}
+
+@media (orientation:landscape){
+    color: yellowgreen;
+}
