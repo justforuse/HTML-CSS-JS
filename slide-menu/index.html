@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #333;
+        }
+        #slide {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            border: 1px solid red;
+            transition: all 10.5s ease-in-out;
+            background: #ccc;
+        }
+
+        #content {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 200px;
+            right: 0;
+            border: 1px solid red;
+            transition: all 10.5s ease-in-out;
+            background: white;
+        }
+
+
+        #container.close #slide {
+            transform: scale(.8, .8);
+        }
+        #container.close #content{
+            left: 0;
+        }
+    </style>
+</head>
+
+<body id="container">
+    <div id="slide">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        content
+        <button onclick="toggle()">Toggle</button>
+    </div>
+
+    <script>
+        var $slide = document.getElementById("slide");
+        var $content = document.getElementById("content");
+        var $container = document.getElementById("container");
+        function toggle() {
+            if ($container.className.indexOf("close") > -1) {
+                $container.className = "";
+            } else {
+                $container.className = "close";
+            }
+        }
+    </script>
+</body>
+
+</html>

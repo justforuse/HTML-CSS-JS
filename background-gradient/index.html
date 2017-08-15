@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            display: inline-block;
+        }
+        .linear{
+            background: linear-gradient(to left bottom, firebrick, skyblue, yellowgreen)
+        }
+        .linear-image{
+            background: linear-gradient(45deg,rgba(255,255,255,0), rgba(200,200,200,1)),
+            url(../lena.jpg);
+
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="linear"></div>
+    <div class="linear-image"></div>
+</body>
+
+</html>
