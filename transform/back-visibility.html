@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .stage {
+            perspective: 500px;
+        }
+
+        .container {
+            text-align: center;
+            transform: rotateY(0deg);
+            width: 256px;
+            height: 256px;
+            margin: auto;
+            position: relative;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        img {
+            /* transform: rotateX(45deg); */
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        img.back {
+            transform: rotateY(180deg)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="container">
+            <img src="../lena.jpg" alt="">
+            <img class="back" src="../monalisa.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>

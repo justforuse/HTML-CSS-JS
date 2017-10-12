@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .wrapper {
+            background: url(./washington.jpg) center center no-repeat;
+            background-size: cover;
+
+            mix-blend-mode: difference;
+        }
+
+        .container {
+
+            color: white;
+            font-size: 40px;
+            line-height: 700px;
+            text-align: center;
+            mix-blend-mode: difference;
+            height: 100%;
+        }
+
+        /* .container h1::after {
+            content: "Lorem ipsum dolor sit.";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            mix-blend-mode: difference;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Not pseudo Lorem ipsum dolor sit.</h1>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>My Geocode App</title>
+  <style>
+    #map {
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 id="text-center">Enter Location: </h2>
+    <form id="location-form">
+      <input type="text" id="location-input" class="form-control form-control-lg">
+      <br>
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </form>
+    <div class="card-block" id="formatted-address"></div>
+    <div class="card-block" id="address-components"></div>
+    <div class="card-block" id="geometry"></div>
+  </div>
+
+  <div class="container">
+    <div id="map"></div>
+  </div>
+
+  <script>
+    // Call Geocode
+    //geocode();
+
+    // Get location form
+    var locationForm = document.getElementById('location-form');
+
+    // Listen for submiot
+    locationForm.addEventListener('submit', geocode);
+
+    function geocode(e) {
+      // Prevent actual submit
+      e.preventDefault();
+
+      var location = document.getElementById('location-input').value;
+
+      axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          address: location,
+          key: 'AIzaSyAxBc6H7U0h87EuoaULOcdg-qE6SqBPRmg'
+        }
+      })
+        .then(function (response) {
+          // Log full response
+          console.log(response);
+
+          // Formatted Address
+          var formattedAddress = response.data.results[0].formatted_address;
+          var formattedAddressOutput = `
+          <ul class="list-group">
+            <li class="list-group-item">${formattedAddress}</li>
+          </ul>
+        `;
+
+
+          // Geometry
+          var lat = response.data.results[0].geometry.location.lat;
+          var lng = response.data.results[0].geometry.location.lng;
+
+
+
+          // reset map
+          locationSuccess({
+            coords: {
+              latitude: lat,
+              longitude: lng
+            }
+          })
+
+          //Add marker
+
+          // Output to app
+          document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+    var map;
+    //init map, get current position
+    function initMap() {
+      if (navigator.geolocation) {
+        map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12
+        })
+        navigator.geolocation.getCurrentPosition(locationSuccess, null, {
+          enableHighAccuracy: true
+        });
+
+
+      } else {
+        alert("Your browser does not support Geolocation!");
+      }
+    }
+
+
+    function locationSuccess(position) {
+      var coords = position.coords;
+      var pos = {
+        lat: coords.latitude,
+        lng: coords.longitude
+      }
+      // var map = new google.maps.Map(document.getElementById("map"), {
+      //   zoom: 12,
+      //   center: pos
+      // })
+      map.setOptions({
+        center: pos
+      })
+
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: map
+      })
+    }
+  </script>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxBc6H7U0h87EuoaULOcdg-qE6SqBPRmg&callback=initMap">
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #fullscreen:-webkit-full-screen{
+            width: 100%;
+            height: 100%;
+        }
+        img{
+            width: 600px;
+            vertical-align: bottom;
+        }
+        
+        /* 全屏状态设置图片宽度 */
+        #fullscreen:-webkit-full-screen img{
+            width: 100%;
+        }
+
+        #fullscreen:-webkit-full-screen:-webkit-backdrop{
+            background: maroon;
+        }
+        #fullscreen:-ms-fullscreen:backdrop{
+            background: maroon;
+        }
+    </style>
+</head>
+<body>
+    <div id="fullscreen">
+        <img id="myImg" src="../beach.jpg" alt="">
+    </div>
+
+    <script>
+        var $imgContainer = document.getElementById("fullscreen");
+        var $img = document.getElementById("myImg");
+        
+        // 点击图片切换全屏状态
+        $img.addEventListener("click", function(){
+            if(document.webkitIsFullScreen){
+                document.webkitExitFullscreen();
+            }else{
+                $imgContainer.webkitRequestFullScreen();
+            }
+        })
+        
+    </script>
+</body>
+</html>
