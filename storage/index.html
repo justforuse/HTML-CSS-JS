@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        console.log("localStorage: ", window.localStorage);
+        console.log("sessionStorage: ", window.sessionStorage);
+    
+        sessionStorage.setItem("sessionTest", "session");
+        localStorage.setItem("localTest", "local");
+
+        console.log("localStorage: ", window.localStorage);
+        console.log("sessionStorage: ", window.sessionStorage);
+    </script>
+</body>
+</html>
