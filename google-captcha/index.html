@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+
+        <div class="g-recaptcha" data-sitekey="6LeB0TEUAAAAAHhHZWt3loRB2IM_WrNqlVIjPirW"></div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('form').addEventListener('submit', submitForm);
+        function submitForm(e) {
+            e.preventDefault();
+
+            const name = document.querySelector('#name').value;
+            const captcha = document.querySelector('#g-recaptcha-response').value;
+
+            console.log(name, captcha);
+
+            // var xhr = new XMLHttpRequest();
+            // // xhr.onreadystatechange(function () {
+                
+            // //     if(xhr.readyState == 4){
+            // //         console.log(xhr.responseText);
+            // //     }
+            // // })
+            // xhr.open("POST", "https://google.com/recaptcha/api/siteverify", true);
+            // xhr.send(null);
+
+            // axios({
+            //     method: 'post',
+            //     url: "https://google.com/recaptcha/api/siteverify",
+            //     params: {
+            //         secret: "6LeB0TEUAAAAAMWLGj7nNwWM7MXWw-WlWq7PtDSm",
+            //         response: captcha
+            //     }
+            // })
+            //     .then(function (response) {
+            //         console.log(response);
+            //     })
+            //     .catch(function (error) {
+            //         console.log(error);
+            //     });
+
+
+
+            fetch("https://google.com/recaptcha/api/siteverify?secret=6LeB0TEUAAAAAMWLGj7nNwWM7MXWw-WlWq7PtDSm&response=" + captcha, {
+                method:"POST",
+                mode: 'no-cors'
+            })
+                .then(function (r) {
+                    r.json().then(function(data){
+                        console.log(data);
+                    })
+                })
+                .then(function(data){
+                    console.log(data);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                })
+
+
+        }
+    </script>
+</body>
+
+</html>
