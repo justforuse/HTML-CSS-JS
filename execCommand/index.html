@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #hiddenText{
+            opacity: 0;
+            height: 0;
+            /* width: 0; */
+            border: none;
+            padding: 0;
+            position: fixed;
+            left: -99px;
+        }
+    </style>
+</head>
+<body>
+    <p>点击复制后在右边textarea CTRL+V看一下</p>
+    <div id="divText">div中的内容</div>
+    <input type="text" id="hiddenText">
+    <input type="text" id="inputText" value="测试文本">
+    <input type="button" id="btn1" value="复制input"/>
+    <input type="button" id="btn2" value="复制div"/>
+    <textarea rows="4"></textarea>
+    <script type="text/javascript">
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        btn1.addEventListener('click', function(){
+            var inputText = document.getElementById('inputText');
+            var currentFocus = document.activeElement;
+            inputText.focus();
+            inputText.setSelectionRange(0, inputText.value.length);
+            document.execCommand('copy', true);
+            currentFocus.focus();
+        });
+
+        btn2.addEventListener('click', function(){
+            var divText = document.getElementById('divText');
+            var hiddenText = document.getElementById("hiddenText");
+            hiddenText.value = divText.innerHTML;
+            console.log(hiddenText.value);
+
+            var currentFocus = document.activeElement;
+            hiddenText.focus();
+            hiddenText.setSelectionRange(0, hiddenText.value.length);
+            document.execCommand('copy', true);
+            currentFocus.focus();
+        });
+    </script>
+</body>
+</html>
