@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button{
+            padding: 0;
+            background-color: white;
+            box-sizing: border-box;
+        }
+        .play{
+            height: 74px;
+            border-style: solid;
+            border-width: 37px 0 37px 60px;
+            border-color: transparent transparent transparent black;
+            transition: all .5s ease;
+        }
+        .play:hover{
+            border-style: double;
+            border-width: 0px 0px 0px 60px;
+        }
+        .pause{
+            width: 74px;
+            height: 74px;
+            border-style: double;
+            border-width: 0px 0px 0px 60px;
+            border-color: #202020;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <button class="play"></button>
+    </div>
+    <div>
+        <button class="pause"></button>
+    </div>
+    
+</body>
+</html>
