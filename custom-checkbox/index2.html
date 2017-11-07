@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .custom-checkbox span{
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #d3d3d3;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 20px;
+        }
+        .custom-checkbox input[type="checkbox"]{
+            display: none;
+        }
+        .custom-checkbox input[type="checkbox"]:checked + span{
+            background-color: #eee;
+        }
+        .custom-checkbox input[type="checkbox"]:checked + span:after{
+            content: "\2714";
+        }
+    </style>
+</head>
+
+<body>
+    
+    <label class="custom-checkbox">
+        <input type="checkbox">
+        <span></span>
+    </label>
+</body>
+
+</html>

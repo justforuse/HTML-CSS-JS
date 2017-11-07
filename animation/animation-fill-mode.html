@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 0 auto;
+            animation: myBgColor 2.5s ease;
+            animation-delay: 1s;
+
+            /* forwards */
+            animation-fill-mode: backwards;
+        }
+
+        @keyframes myBgColor{
+            0%{
+                background-color: green;
+            }
+            100%{
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div></div>
+</body>
+</html>
