@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            overscroll-behavior-y: none;
+        }
+
+        body.refreshing ul {
+            filter: blur(1px);
+            touch-action: none;
+            /* prevent scrolling */
+        }
+
+        body.refreshing .refresher {
+            transform: translate3d(0,150%,0) scale(1);
+            z-index: 1;
+            visibility: visible;
+          }
+
+        .refresher {
+            pointer-events: none;
+            --refresh-width: 55px;
+            background: #fff;
+            width: var(--refresh-width);
+            height: var(--refresh-width);
+            border-radius: 50%; 
+            position: absolute;
+            left: calc(50% - var(--refresh-width) / 2);
+            padding: 8px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                        0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            transition: all 300ms cubic-bezier(0,0,0.2,1);
+            will-change: transform, opacity;
+            display: inline-flex;
+            justify-content: space-evenly;
+            align-items: center;
+            visibility: hidden;
+          }
+          body.refreshing .refresher.shrink {
+            transform: translate3d(0,150%,0) scale(0);
+            opacity: 0;
+          }
+          .refresher.done {
+            transition: none;
+          }
+        .loading-bar {
+  width: 4px;
+  height: 18px;
+  border-radius: 4px;
+  animation: loading 1s ease-in-out infinite;
+}
+.loading-bar:nth-child(1) {
+  background-color: #3498db;
+  animation-delay: 0;
+}
+.loading-bar:nth-child(2) {
+  background-color: #c0392b;
+  animation-delay: 0.09s;
+}
+.loading-bar:nth-child(3) {
+  background-color: #f1c40f;
+  animation-delay: .18s;
+}
+.loading-bar:nth-child(4) {
+  background-color: #27ae60;
+  animation-delay: .27s;
+}
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1,2.2);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+        ol {
+            overflow: auto;
+            height: 100px;
+            overscroll-behavior: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="refresher">
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+    </div>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <ol>
+                <li>scroll this box</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ol>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+            <li>21</li>
+            <li>22</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>26</li>
+            <li>27</li>
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+            <li>32</li>
+            <li>33</li>
+            <li>34</li>
+            <li>35</li>
+            <li>36</li>
+            <li>37</li>
+            <li>38</li>
+            <li>39</li>
+            <li>40</li>
+            <li>41</li>
+            <li>42</li>
+            <li>43</li>
+            <li>44</li>
+            <li>45</li>
+            <li>46</li>
+            <li>47</li>
+            <li>48</li>
+            <li>49</li>
+            <li>50</li>
+        </ul>
+
+    </div>
+    <script>
+        let _startY;
+        const inbox = document.querySelector('ul');
+
+        inbox.addEventListener('touchstart', e => {
+            _startY = e.touches[0].pageY;
+        }, { passive: true });
+
+        inbox.addEventListener('touchmove', e => {
+            const y = e.touches[0].pageY;
+            // Activate custom pull-to-refresh effects when at the top of the container
+            // and user is scrolling up.
+            if (document.scrollingElement.scrollTop === 0 && y > _startY &&
+                !document.body.classList.contains('refreshing')) {
+                // refresh inbox.
+                document.body.classList.add('refreshing');
+                setTimeout(function(){
+                    document.body.classList.remove('refreshing');
+                }, 2000)
+            }
+        }, { passive: true });
+    </script>
+</body>
+
+</html>

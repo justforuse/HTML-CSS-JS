@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>InsertBefore</title>
+</head>
+<body>
+    <ul>
+        <li class="home">Home</li>
+        <li class="about">About</li>
+    </ul>
+    <ul>
+        <li class="back-up">Backup</li>
+    </ul>
+    <button onclick="beforeHome()">Insert</button>
+    <button onclick="afterHome()">After</button>
+    <script>
+        const aboutEle = document.querySelector(".about");
+        const homeEle = document.querySelector(".home");
+        const backEle = document.querySelector(".back-up");
+        function beforeHome(){
+            document.querySelector("ul").insertBefore(aboutEle, homeEle);
+        }
+
+        function afterHome(){
+            document.querySelector("ul").insertBefore(backEle, homeEle.nextSibling);
+        }
+    </script>
+</body>
+</html>

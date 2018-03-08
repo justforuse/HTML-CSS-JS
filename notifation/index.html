@@ -29,11 +29,15 @@
                 if (window.Notification && Notification.permission === "granted") {
                     var options = {
                         icon: "./pic.jpg",
-                        body: "hello, a demo of notifation"
+                        body: "<a href='https://www.baidu.com'>hello, a demo of notifation</a>"
                     }
                     var n = new Notification("The title!", options);
                     n.onshow = function () {
                         console.log("show")
+                    }
+
+                    n.onclick = function(){
+                        window.open("http://www.stackoverflow.com")
                     }
                 }
 

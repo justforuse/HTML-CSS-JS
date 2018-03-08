@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var request = window.indexedDB.open("test");
+        var database;
+        
+        var users = [
+            {
+                userName: "allen",
+                age: 23
+            },
+            {
+                userName: "bob",
+                age: 18
+            }
+        ]
+        
+        request.onsuccess = function(e){
+            database = e.target.result;
+            console.log(database);
+
+            // database.transaction(["test"], "readwrite")
+            //     .objectStore("users")
+            //     .get("allen")
+            //     .onsuccess = function(e){
+            //         console.log(e);
+            //     }
+            
+        }
+
+        request.onupgradeneeded = function(e){
+            database = e.target.result;
+            var store = database.createObjectStore("users", {
+                keyPath: 'userName'
+            })
+
+            for(let user of users){
+                store.add(user);
+            }
+        }
+
+        request.onerror = function(e){
+            console.log(e);
+        }
+
+
+
+    </script>
+</body>
+</html>
