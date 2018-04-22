@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            padding-top: 25%;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <input type="file" name="" id="">
+        <button type="submit">Submit</button>
+    </form>
+    <div class="container">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, aspernatur.
+    </div>
+
+    <script>
+        var url = "http://127.0.0.1/e/action/ShowInfo.php?classid=9&id=2#flag=123";
+        function parse_url(_url) {
+            var pattern = /(\w+)=(\w+)/ig;
+            var parames = {};
+            url.replace(pattern, function (a, b, c) {
+                parames[b] = c;
+            });
+            return parames;
+        }
+        var parames = parse_url(url);
+        console.log(parames);
+        // alert(parames['classid'] + ", " + parames['id']);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dialog</title>
+    <style>
+        dialog::backdrop {
+            background-color: red;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+
+<body>
+    <dialog id="favDialog">
+        <form method="dialog">
+            <input type="text" name='userName'>
+            <menu>
+                <button id="cancel" type="reset">Cancel</button>
+                <button id='confirm' type="submit" value="confirm">Confirm</button>
+            </menu>
+        </form>
+    </dialog>
+
+    <menu>
+        <button id="updateDetails">Update details</button>
+    </menu>
+    <script>
+        (function () {
+            var updateButton = document.getElementById('updateDetails');
+            var confirmButton = document.getElementById('confirm');
+            var cancelButton = document.getElementById('cancel');
+            var favDialog = document.getElementById('favDialog');
+
+            // Update button opens a modal dialog
+            updateButton.addEventListener('click', function () {
+                favDialog.showModal();
+            });
+
+            // Form cancel button closes the dialog box
+            cancelButton.addEventListener('click', function () {
+                favDialog.close();
+            });
+
+            favDialog.addEventListener('close', function (e) {
+                console.log(e);
+                console.log(this.returnValue);
+            })
+            favDialog.addEventListener('cancel', function (e) {
+                console.log(e);
+                e.preventDefault();
+            })
+
+            favDialog.addEventListener('click', function (event) {
+                var rect = favDialog.getBoundingClientRect();
+                var isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
+                    && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+                if (!isInDialog) {
+                    favDialog.close();
+                }
+            });
+
+        })();
+    </script>
+</body>
+
+</html>

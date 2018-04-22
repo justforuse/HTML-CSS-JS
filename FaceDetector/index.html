@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FaceDetector</title>
+</head>
+
+<body>
+    <div id="container">
+        <img id="face-image" src="./people.jpg" alt="image" style="width: 100%;" />
+    </div>
+    <script>
+        const faceDetector = new window.FaceDetector();
+
+        const image = document.getElementById('face-image');
+        const container = document.getElementById('container');
+
+        image.onload = function () {
+            setTimeout(handleDetect, 100);
+        };
+
+        function handleDetect() {
+            const rate = image.offsetWidth / image.naturalWidth;
+            faceDetector.detect(image)
+                .then(detectedFaces => {
+                    console.log(detectedFaces);
+                    for (const face of detectedFaces) {
+                        const bound = document.createElement('div');
+                        console.log(face.boundingBox);
+                        bound.style.position = 'absolute';
+                        bound.style.left = rate * face.boundingBox.x + 'px';
+                        bound.style.top = rate * face.boundingBox.y + 'px';
+                        bound.style.width = rate * face.boundingBox.width + 'px';
+                        bound.style.height = rate * face.boundingBox.height + 'px';
+                        bound.style.border = '2px solid red';
+                        bound.style.backgroundColor = 'rgba(0, 0, 255, 0.25)';
+                        container.appendChild(bound);
+                    }
+                })
+                .catch((e) => {
+                    console.error("Face Detection failed, boo.", e);
+                });
+        }
+        </script>
+</body>
+
+</html>
