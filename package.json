@@ -1,5 +1,4 @@
 {
-
   "name": "html-css-js",
   "version": "1.0.0",
   "description": "just some demo",
@@ -12,9 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/justforuse/HTML-CSS-JS.git"
   },
-
   "keywords": [],
-
   "author": "",
   "license": "ISC",
   "bugs": {
