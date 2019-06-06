@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        .container {
+            max-height: 100vh;
+            overflow-y: scroll;
+            border: 1px solid gray;
+            scroll-snap-type: mandatory;
+            scroll-snap-points-y: repeat(3rem);
+            scroll-snap-type: y mandatory;
+        }
+
+        li {
+            border-bottom: 1px solid red;
+            padding: 1rem;
+            font-size: 1.2rem;
+            color: red;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="scroller">
+            <li>Lorem, ipsum dolor.</li>
+            <li>Fugiat, maxime atque?</li>
+            <li>Repellendus, dolorum ut.</li>
+            <li>Magnam, consequatur quis?</li>
+            <li>Ipsa, culpa atque?</li>
+            <li>Beatae, eius vero.</li>
+            <li>Aperiam, magni excepturi?</li>
+            <li>Quia, repellat sed.</li>
+            <li>Quis, quasi id.</li>
+            <li>Architecto, vitae placeat.</li>
+            <li>Vero, eum distinctio.</li>
+            <li>Impedit, officiis ratione?</li>
+            <li>Minus, nisi reprehenderit.</li>
+            <li>Aspernatur, tempore voluptas.</li>
+            <li>Eos, perferendis fuga.</li>
+            <li>Quasi, culpa itaque!</li>
+            <li>Dolorum, odit quasi?</li>
+            <li>Laborum, possimus exercitationem.</li>
+            <li>Alias, sapiente molestias.</li>
+            <li>Iusto, cupiditate non.</li>
+            <li>Hic, commodi dicta!</li>
+            <li>Atque, voluptatum repellendus!</li>
+            <li>Est, maiores perferendis!</li>
+            <li>Nesciunt, hic error.</li>
+            <li>Iure, perspiciatis numquam?</li>
+            <li>Distinctio, possimus accusamus?</li>
+            <li>Laborum, autem asperiores!</li>
+            <li>Sequi, alias accusamus!</li>
+            <li>Voluptatem, nam ab!</li>
+            <li>Officiis, ad est?</li>
+            <li>Excepturi, laudantium animi.</li>
+            <li>Vel, praesentium omnis.</li>
+            <li>Dolore, voluptate pariatur?</li>
+            <li>Iure, earum autem?</li>
+            <li>Facilis, enim dolor.</li>
+            <li>Illo, aspernatur. Vel!</li>
+            <li>Optio, esse ad!</li>
+            <li>Quasi, totam porro.</li>
+            <li>Laborum, laboriosam exercitationem!</li>
+            <li>Ratione, molestias est?</li>
+            <li>Fugit, mollitia fugiat?</li>
+            <li>Sequi, labore voluptatibus.</li>
+            <li>Explicabo, qui. Pariatur!</li>
+            <li>Laudantium, eligendi tempore!</li>
+            <li>Ad, corporis cum.</li>
+            <li>Dolorem, voluptates obcaecati.</li>
+            <li>Rerum, hic facere?</li>
+            <li>Eum, consequatur? Iusto!</li>
+            <li>Sapiente, totam quasi?</li>
+            <li>Ipsum, delectus quas.</li>
+        </ul>
+    </div>
+    <!-- <div class="container">
+        <section>
+            <h1>Section 1</h1>
+        </section>
+        <section>
+            <h1>Section 2</h1>
+        </section>
+        <section>
+            <h1>Section 3</h1>
+        </section>
+    </div> -->
+</body>
+
+</html>
