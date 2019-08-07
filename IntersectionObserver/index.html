@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IntersectionObserver demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <section>
+    <span>1</span>
+  </section>
+  <section>
+    <span>2</span>
+  </section>
+  <section>
+    <span>3</span>
+  </section>
+  <section>
+    <span>4</span>
+  </section>
+  <script>
+    const sections = document.querySelectorAll('span')
+    const options = {
+      // thresholds: [1]
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.intersectionRatio  > 0) {
+            entry.target.style.animation = 'anim .4s forwards';
+        }
+        else {
+            entry.target.style.animation = 'none';
+        }
+      })
+    }, options)
+
+    sections.forEach(section => observer.observe(section))
+  </script>
+</body>
+
+</html>
